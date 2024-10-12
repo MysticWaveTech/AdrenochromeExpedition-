@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrenochrome Exhibition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: darkred;
+            color: #fff;
+        }
+        header {
+            background-color: red;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: red;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        .event {
+            background: gold;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .date-input {
+            margin-top: 10px;
+        }
+        .submit-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .saved-dates {
+            margin-top: 20px;
+            background: #e7f3fe;
+            padding: 10px;
+            border: 1px solid #b3d4fc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Adrenochrome Exhibition 2024</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="about" class="container">
+    <h2>About the Exhibition</h2>
+    <p>Welcome to the Adrenochrome Exhibition! This event gathers enthusiasts, researchers, and curious minds to explore the intriguing world of adrenochrome. Join us for discussions, workshops, and networking opportunities.</p>
+</section>
+
+<section id="events" class="container">
+    <h2>Events Schedule</h2>
+    <div class="event">
+        <h3>Keynote Speech: The Science Behind Adrenochrome</h3>
+        <p>Date: <input type="text" class="date-input" placeholder="Enter Date" /></p>
+        <button class="submit-btn">Submit Date</button>
+        <div class="saved-dates"></div>
+    </div>
+    <div class="event">
+        <h3>Panel Discussion: Ethics and Implications</h3>
+        <p>Date: <input type="text" class="date-input" placeholder="Enter Date" /></p>
+        <button class="submit-btn">Submit Date</button>
+        <div class="saved-dates"></div>
+    </div>
+    <div class="event">
+        <h3>Networking Session</h3>
+        <p>Date: <input type="text" class="date-input" placeholder="Enter Date" /></p>
+        <button class="submit-btn">Submit Date</button>
+        <div class="saved-dates"></div>
+    </div>
+</section>
+
+<section id="register" class="container">
+    <h2>Register for the Exhibition</h2>
+    <p>Don't miss out on this exciting event! Click the link below to register.</p>
+    <a href="https://example.com/register" target="_blank">Register Now</a>
+</section>
+
+<section id="contact" class="container">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, please feel free to reach out to us:</p>
+    <p>Email: <a href="mailto:info@adrenochromeexhibition.com">info@adrenochromeexhibition.com</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Adrenochrome Exhibition. All rights reserved.</p>
+</footer>
+
+<script>
+    // Handle date submission and display
+    const submitButtons = document.querySelectorAll('.submit-btn');
+
+    submitButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const dateInput = button.previousElementSibling.querySelector('.date-input');
+            const dateValue = dateInput.value;
+
+            if (dateValue) {
+                // Create a new paragraph for the saved date
+                const savedDate = document.createElement('p');
+                savedDate.textContent = `Saved Date: ${dateValue}`;
+                savedDate.classList.add('saved-date');
+
+                // Find the div to display saved dates
+                const savedDatesDiv = button.nextElementSibling;
+
+                // Append the saved date to the display div
+                savedDatesDiv.appendChild(savedDate);
+
+                // Clear the input field after submission
+                dateInput.value = '';
+            } else {
+                alert('Please enter a valid date.');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
